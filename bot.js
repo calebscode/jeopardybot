@@ -5,9 +5,7 @@ const fetch = require("node-fetch");
 var T = new Twit(config);
 
 // tweet once a day
-setInterval(tweetRandomTrivia, 1000*60*60*24);
-
-tweetRandomTrivia();
+setInterval(tweetRandomTrivia, 1000*60*60*24);// once a day
 
 function tweetRandomTrivia() {
 fetch('http://jservice.io/api/random')
@@ -26,7 +24,7 @@ fetch('http://jservice.io/api/random')
         const answer = data[0].answer;
 
         // construct the tweet content from the JSON data
-        var tweetContent = "Jeopardy Clue of the Day!\nCategory: " + category + "\n\nClue: " + question + ".\n\n.\n.\n.\n.\n.\n.\n.\n\n" + "Answer: " + answer;
+        var tweetContent = "Jeopardy Clue of the Day!\nCategory: " + category + "\n\nClue: " + question + "\n\n.\n.\n.\n.\n.\n.\n.\n\n" + "Answer: " + answer;
 
         if(tweetContent.length <= 280) {
             // if the tweet isnt too long, tweet it
